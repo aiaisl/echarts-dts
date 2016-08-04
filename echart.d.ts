@@ -1,8 +1,15 @@
 declare namespace Echart {
     export interface Echarts {
         init: (el: HTMLElement) => Echarts;
+        connect: (group: string| Array<string>)=> void;
+        disConnect: (dispose: string)=> void;
+        dispose: (target: Echarts | HTMLDivElement|HTMLCanvasElement) => void;
+        getInstanceByDom: (target: HTMLDivElement| HTMLCanvasElement) => Echarts;
+        registerMap: (mapName: string, geoJson: Object, specialAreas?: Object) => void;
+        getMap: (mapName: string)=> Object;
+        registerTheme: (themeName: string, theme: Object)=> void;
         setOption: (options: EchartOption) => void;
-    }    
+    }
     export interface TextStyle {
         color?: string,
         fontStyle?: string,
